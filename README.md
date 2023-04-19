@@ -1,5 +1,7 @@
 # Warehouse Transit 
-After installation and configuration of the views, this module hides the default operations types and locations in the Odoo Inventory app when performing transfers, resulting in a more customized user experience.
+
+Before using this module, you should create a new transit location for your warehouse in the Odoo Inventory app. Once this is done, you can use this module to hide the default operations types and locations in the Odoo Inventory app when performing transfers, resulting in a more customized user experience.
+
 ## Table of Contents
 
 - [Installation](#installation)
@@ -16,13 +18,14 @@ After installation and configuration of the views, this module hides the default
 
 ## Usage
 
-1. Navigate to the Inventory app in Odoo.
-2. Select `Operations` from the main menu and then `Transfer`.
-3. Click the `Create` button to create a new transfer.
-4. In the `Operation Type` field, select the Warehouse Operations Type that corresponds to your needs.
-5. In the `Source Location` and `Destination Location` fields, select the locations that correspond to your warehouse and destination.
-6. Replace any default IDs with your own IDs as needed at views.xml file. For example, replace the `location_id` field with the ID of your warehouse location.
-7. Save the picking and process it as needed.
+1. Create a new transit location for your warehouse in the Odoo Inventory app.
+2. Navigate to the Inventory app in Odoo.
+3. Select `Operations` from the main menu and then `Transfer`.
+4. Click the `Create` button to create a new transfer.
+5. In the `Operation Type` field, select the Warehouse Operations Type that corresponds to your needs.
+6. In the `Source Location` and `Destination Location` fields, select the transit location you created and the main warehouse, respectively.
+7. Replace any default IDs with your own IDs as needed at `views.xml` file. For example, replace the `location_id` field with the ID of your warehouse location.
+8. Save the picking and process it as needed.
 
 ## Contributing
 
