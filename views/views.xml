@@ -1,0 +1,50 @@
+<odoo>
+    <data>
+        <!-- Define a new view for the stock.picking form -->
+        <record id="custom_stock_view_picking_form" model="ir.ui.view">
+            <field name="name">stock.picking.form.custom</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/> <!-- Inherit from the default view -->
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='location_id']" position="replace">
+                    <!-- Replace the existing location_id field with a new one -->
+                    <field name="location_id"
+                           options="{'no_create': True}"
+                           groups="stock.group_stock_multi_locations"
+                           attrs="{'invisible': [('picking_type_code', '=', 'incoming')]}"
+                           domain="[('id', 'in', [8,228])]"/>
+                </xpath>
+                <xpath expr="//field[@name='location_dest_id']" position="replace">
+                    <!-- Replace the existing location_dest_id field with a new one -->
+                    <field name="location_dest_id"
+                           options="{'no_create': True}"
+                           groups="stock.group_stock_multi_locations"
+                           attrs="{'invisible': [('picking_type_code', '=', 'outgoing')]}"
+                           domain="[('id', 'in', [438,439])]"/>
+                </xpath>
+                <xpath expr="//field[@name='picking_type_id']" position="replace">
+                    <!-- Replace the existing location_dest_id field with a new one -->
+                    <field name="picking_type_id"
+                           attrs="{'invisible': [('hide_picking_type', '=', True)], 'readonly': [('state', '!=', 'draft')]}"
+                           domain="[('id', '=', 5)]"/>
+                </xpath>
+            </field>
+        </record>
+        
+         <record id="purchase_order_stock_picking_type_inherit" model="ir.ui.view">
+            <field name="name">purchase.order.stock.picking.type.inherit</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase_stock.purchase_order_view_form_inherit"/> <!-- Inherit from the default view -->
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='picking_type_id']" position="replace">
+                    <!-- Replace the existing location_id field with a new one -->
+                    <field name="picking_type_id"
+                           domain="[('id', '=', 1)]"
+                           options="{'no_create': True}"
+                           groups="stock.group_stock_multi_locations"/>
+                </xpath>
+            </field>
+        </record>
+       
+    </data>
+</odoo> 

@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_pw_wh_transit_pw_wh_transit,pw_wh_transit.pw_wh_transit,model_pw_wh_transit_pw_wh_transit,base.group_user,1,1,1,1
