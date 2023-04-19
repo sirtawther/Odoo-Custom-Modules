@@ -1,4 +1,4 @@
-# Odoo-Custom-Modules
+# Warehouse Transit 
 After installation and configuration of the views, this module hides the default operations types and locations in the Odoo Inventory app when performing transfers, resulting in a more customized user experience.
 ## Table of Contents
 
